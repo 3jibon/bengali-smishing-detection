@@ -1,0 +1,14 @@
+{
+  "without_augmentation": {
+    "test_f1": 0.7390658617674838,
+    "smish_recall": 0.632991318074191
+  },
+  "with_augmentation": {
+    "test_f1": 0.7452,
+    "smish_recall": 0.5888
+  },
+  "improvement": {
+    "f1": 0.006134138232516184,
+    "recall": -0.044191318074190966
+  }
+}

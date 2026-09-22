@@ -1,0 +1,9 @@
+{
+  "test_size": 2098,
+  "removed_duplicates": 9,
+  "macro_f1": 0.7452085310997701,
+  "accuracy": 0.7440419447092469,
+  "smish_recall": 0.5887924230465666,
+  "previous_f1": 0.7463,
+  "previous_recall": 0.5888
+}

@@ -1,0 +1,17 @@
+{
+  "total_smish": 1267,
+  "correctly_classified": 746,
+  "misclassified": 521,
+  "miss_rate_pct": 41.12075769534333,
+  "error_categories": {
+    "no_url": 521,
+    "no_bangla": 309,
+    "has_numbers": 262,
+    "no_phone": 144,
+    "short_text": 65
+  },
+  "predicted_distribution": {
+    "normal": 307,
+    "promo": 214
+  }
+}

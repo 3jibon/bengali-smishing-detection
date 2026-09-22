@@ -1,0 +1,46 @@
+{
+  "variants": {
+    "V1_original": {
+      "f1": 0.7622623190496348,
+      "smish_recall": 0.6898184688239937,
+      "n_smish_pred": 915
+    },
+    "V2_url_removed": {
+      "f1": 0.7622623190496348,
+      "smish_recall": 0.6898184688239937,
+      "n_smish_pred": 915
+    },
+    "V3_phone_removed": {
+      "f1": 0.7138071677063857,
+      "smish_recall": 0.5911602209944752,
+      "n_smish_pred": 780
+    },
+    "V4_both_removed": {
+      "f1": 0.7138071677063857,
+      "smish_recall": 0.5911602209944752,
+      "n_smish_pred": 780
+    },
+    "V6_context_removed": {
+      "f1": 0.12615424632592015,
+      "smish_recall": 0.0,
+      "n_smish_pred": 24
+    },
+    "V7_template_only": {
+      "f1": 0.12615424632592015,
+      "smish_recall": 0.0,
+      "n_smish_pred": 24
+    },
+    "V8_context_only": {
+      "f1": 0.7138071677063857,
+      "smish_recall": 0.5911602209944752,
+      "n_smish_pred": 780
+    }
+  },
+  "metrics": {
+    "CRR": 0.8469945355191257,
+    "TDS": 0.055767397521449,
+    "PS": 0.9308865586272641,
+    "CD": 0.04292033985257149,
+    "CCR": 0.8970189477633144
+  }
+}

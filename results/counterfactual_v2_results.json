@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "V1_original": {
+      "f1": 0.9736412688290961,
+      "n_smish_pred": 1383
+    },
+    "V2_url_removed": {
+      "f1": 0.967642682912505,
+      "n_smish_pred": 1332
+    },
+    "V3_phone_removed": {
+      "f1": 0.963264275342215,
+      "n_smish_pred": 1343
+    },
+    "V4_both_removed": {
+      "f1": 0.957253344168961,
+      "n_smish_pred": 1292
+    },
+    "V6_context_removed": {
+      "f1": 0.43850991679806195,
+      "n_smish_pred": 847
+    },
+    "V7_template_only": {
+      "f1": 0.43850991679806195,
+      "n_smish_pred": 847
+    },
+    "V8_context_only": {
+      "f1": 0.957253344168961,
+      "n_smish_pred": 1292
+    }
+  },
+  "metrics": {
+    "CRR": 0.9334779464931309,
+    "TDS": 0.01695402298850575,
+    "PS": 0.9724137931034482,
+    "CCR": 0.9495770984496041
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "config": "XLM-R + LoRA r=32",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "f1_scores": [
+    0.6466,
+    0.6008,
+    0.5304
+  ],
+  "recall_scores": [
+    0.4159,
+    0.3599,
+    0.232
+  ],
+  "mean_f1": 0.5926,
+  "std_f1": 0.0478,
+  "min_f1": 0.5304,
+  "max_f1": 0.6466,
+  "range": 0.1162,
+  "finding": "r=32 exhibits high variance and severe overfitting"
+}

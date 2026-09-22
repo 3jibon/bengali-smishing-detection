@@ -1,0 +1,9 @@
+{
+  "model": "IndicBERT + LoRA (r=16)",
+  "trainable_params": 2681091,
+  "trainable_pct": 0.9551,
+  "test_f1": 0.7623,
+  "test_acc": 0.7788,
+  "smish_recall": 0.6898,
+  "time_sec": 444
+}

@@ -1,0 +1,17 @@
+{
+  "baseline_f1": 0.5963430423982029,
+  "lora_f1": 0.746337323978222,
+  "improvement": 0.14999428158001904,
+  "contingency": {
+    "both_correct": 1106,
+    "only_baseline_correct": 58,
+    "only_lora_correct": 464,
+    "both_wrong": 479
+  },
+  "mcnemar": {
+    "test_statistic": 464,
+    "p_value": 1.1118264033422418e-79,
+    "significant_at_0.05": true,
+    "significant_at_0.001": true
+  }
+}

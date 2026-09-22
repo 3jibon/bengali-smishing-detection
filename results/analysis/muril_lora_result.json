@@ -1,0 +1,14 @@
+{
+  "model": "MuRIL + LoRA (r=16)",
+  "trainable_params": 1800000,
+  "test_f1": 0.6579,
+  "test_acc": 0.6492,
+  "smish_recall": 0.4641,
+  "time_sec": 376,
+  "comparison": {
+    "muril_full_ft_f1": 0.469,
+    "muril_lora_f1": 0.6579,
+    "improvement": 0.1889,
+    "trainable_reduction_pct": 99.2
+  }
+}

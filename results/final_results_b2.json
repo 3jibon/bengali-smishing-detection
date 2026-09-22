@@ -1,0 +1,13 @@
+{
+  "experiment": "B2_Phone_Holdout",
+  "model": "XLM-R + LoRA (r=16)",
+  "baseline_f1": 0.5329132647345803,
+  "lora_test_f1": 0.7602654854664085,
+  "lora_test_accuracy": 0.7871966232852621,
+  "smish_recall": 0.708936595107339,
+  "smish_precision": 0.9888579387186629,
+  "improvement": 0.22735222073182815,
+  "train_size": 5597,
+  "val_size": 432,
+  "test_size": 2843
+}

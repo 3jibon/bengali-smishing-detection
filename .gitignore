@@ -1,0 +1,26 @@
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+data/raw/*.csv
+results/models/*.bin
+.DS_Store
+# Large model files
+results/models/
+models/*/.cache/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.pkl
+optimizer.pt
+
+# Large data
+data/raw/
+data/external/
+
+# Virtual env
+venv/
+env/

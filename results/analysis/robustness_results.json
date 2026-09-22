@@ -1,0 +1,36 @@
+{
+  "test_split": "B1_URL_Holdout",
+  "model": "XLM-R + LoRA r=16",
+  "results": [
+    {
+      "condition": "Clean",
+      "macro_f1": 0.746337323978222,
+      "accuracy": 0.7451352634076887,
+      "smish_recall": 0.5887924230465666
+    },
+    {
+      "condition": "Typo (5%)",
+      "macro_f1": 0.7329820410238846,
+      "accuracy": 0.7327954437588989,
+      "smish_recall": 0.5674822415153907
+    },
+    {
+      "condition": "Extra Spaces",
+      "macro_f1": 0.746337323978222,
+      "accuracy": 0.7451352634076887,
+      "smish_recall": 0.5887924230465666
+    },
+    {
+      "condition": "Case Flip",
+      "macro_f1": 0.7163230095122494,
+      "accuracy": 0.7171333649738966,
+      "smish_recall": 0.5438042620363063
+    },
+    {
+      "condition": "Mixed",
+      "macro_f1": 0.6990337921934602,
+      "accuracy": 0.6986236355007119,
+      "smish_recall": 0.5146014206787688
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "latency_single_ms": 20.370123386383057,
+  "latency_batch_ms": 3.2234732061624527,
+  "trainable_params": 0,
+  "total_params": 281293062,
+  "trainable_pct": 0.0,
+  "adapter_size_mb": 13.02106,
+  "base_model_size_mb": 1125.172248,
+  "device": "cuda"
+}

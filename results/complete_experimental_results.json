@@ -1,0 +1,99 @@
+{
+  "main_results": {
+    "B1": {
+      "baseline": 0.5963,
+      "lora": 0.7437,
+      "delta": 0.1474
+    },
+    "B2": {
+      "baseline": 0.5329,
+      "lora": 0.7603,
+      "delta": 0.2274
+    }
+  },
+  "ablation_lora": [
+    {
+      "r": 8,
+      "trainable_pct": 0.686,
+      "val_f1": 0.9625,
+      "test_f1": 0.7218
+    },
+    {
+      "r": 16,
+      "trainable_pct": 1.154,
+      "val_f1": 0.9602,
+      "test_f1": 0.7437
+    },
+    {
+      "r": 32,
+      "trainable_pct": 2.078,
+      "val_f1": 0.9659,
+      "test_f1": 0.6881
+    }
+  ],
+  "base_model_comparison": {
+    "XLM_R": {
+      "f1": 0.7437,
+      "smish_recall": 0.5912
+    },
+    "MuRIL": {
+      "f1": 0.469,
+      "smish_recall": 0.0647
+    }
+  },
+  "cv_results": {
+    "mean_f1": 0.7403069210404246,
+    "std_f1": 0.023118494727826355,
+    "folds": [
+      {
+        "fold": 1,
+        "seed": 42,
+        "train_size": 6798,
+        "val_size": 623,
+        "test_f1": 0.7142654707276229,
+        "test_acc": 0.7109634551495017,
+        "smish_recall": 0.5351223362273086
+      },
+      {
+        "fold": 2,
+        "seed": 43,
+        "train_size": 6783,
+        "val_size": 673,
+        "test_f1": 0.7439671248185341,
+        "test_acc": 0.7389653535832937,
+        "smish_recall": 0.585635359116022
+      },
+      {
+        "fold": 3,
+        "seed": 44,
+        "train_size": 6776,
+        "val_size": 671,
+        "test_f1": 0.7825397018741267,
+        "test_acc": 0.7850023730422402,
+        "smish_recall": 0.664561957379637
+      },
+      {
+        "fold": 4,
+        "seed": 45,
+        "train_size": 6930,
+        "val_size": 564,
+        "test_f1": 0.7306263908695487,
+        "test_acc": 0.7332700522069293,
+        "smish_recall": 0.5761641673243884
+      },
+      {
+        "fold": 5,
+        "seed": 46,
+        "train_size": 7198,
+        "val_size": 443,
+        "test_f1": 0.7301359169122907,
+        "test_acc": 0.7285239677266255,
+        "smish_recall": 0.56353591160221
+      }
+    ]
+  },
+  "significance": {
+    "mcnemar_p_value": "<0.001",
+    "significant": true
+  }
+}

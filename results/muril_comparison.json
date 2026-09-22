@@ -1,0 +1,11 @@
+{
+  "model": "MuRIL + LoRA r=16",
+  "test_f1": 0.4689592979194271,
+  "test_accuracy": 0.43094447081158044,
+  "smish_recall": 0.06471981057616416,
+  "smish_precision": 0.9534883720930233,
+  "xlmr_f1": 0.7437,
+  "xlmr_smish_recall": 0.5912,
+  "baseline_f1": 0.5963,
+  "delta_vs_xlmr": -0.27474070208057294
+}

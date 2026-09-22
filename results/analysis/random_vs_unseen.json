@@ -1,0 +1,23 @@
+{
+  "random_split": {
+    "tag": "random_split",
+    "test_f1": 0.9553308694177755,
+    "smish_recall": 0.9572953736654805,
+    "train_size": 4903,
+    "test_size": 2102
+  },
+  "unseen_b1": {
+    "tag": "unseen_b1",
+    "test_f1": 0.686678059601794,
+    "smish_recall": 0.5193370165745856,
+    "train_size": 4898,
+    "test_size": 2107
+  },
+  "generalization_gap_f1": 0.2686528098159815,
+  "smish_recall_drop": 0.4379583570908948,
+  "interpretation": {
+    "f1_gap_pct": 26.87,
+    "recall_gap_pct": 43.8,
+    "conclusion": "Models memorize URL patterns rather than learning robust phishing intent"
+  }
+}

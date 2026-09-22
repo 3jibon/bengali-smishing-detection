@@ -1,0 +1,12 @@
+{
+  "split": "Hard Campaign (distant clusters)",
+  "test_campaigns": [
+    2,
+    4,
+    7,
+    11
+  ],
+  "n": 1865,
+  "accuracy": 0.9785522788203753,
+  "macro_f1": 0.9774913456261559
+}

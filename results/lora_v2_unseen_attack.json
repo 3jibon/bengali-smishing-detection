@@ -1,0 +1,17 @@
+{
+  "split": "True Unseen Attack (campaign holdout)",
+  "n": 2534,
+  "test_campaigns": [
+    1,
+    8,
+    9,
+    13
+  ],
+  "accuracy": 0.9881610102604578,
+  "macro_f1": 0.9863740456452016,
+  "per_class_f1": {
+    "normal": 0.9947229551451188,
+    "promo": 0.974974974974975,
+    "smish": 0.9894242068155111
+  }
+}

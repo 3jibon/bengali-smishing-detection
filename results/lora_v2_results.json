@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-09-22 23:25:20.286002",
+  "model": "XLM-R + LoRA v2 (r=16, 4 modules, weighted, max_len=128)",
+  "trainable_params": 3247107,
+  "total_params": 281293062,
+  "trainable_pct": 1.1543501915450727,
+  "ood": {
+    "accuracy": 0.9747126436781609,
+    "macro_f1": 0.9736412688290961
+  },
+  "per_class_f1": {
+    "normal": 0.9844311377245509,
+    "promo": 0.964200477326969,
+    "smish": 0.9722921914357683
+  }
+}

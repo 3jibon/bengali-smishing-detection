@@ -1,0 +1,7 @@
+{
+  "TF-IDF + LR": 0.5963,
+  "TF-IDF + SVM": 0.5888307411148637,
+  "mBERT (Full FT)": 0.6447581927845324,
+  "MuRIL (Full FT)": 0.469,
+  "XLM-R + LoRA (Ours)": 0.7437
+}

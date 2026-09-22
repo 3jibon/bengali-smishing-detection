@@ -1,0 +1,11 @@
+{
+  "dataset": "BangalaBarta",
+  "total_samples": 2772,
+  "macro_f1": 0.8486636083781591,
+  "accuracy": 0.8567821067821068,
+  "smish_recall": 0.604978354978355,
+  "b1_f1": 0.744,
+  "b1_smish_recall": 0.591,
+  "f1_drop": -0.10466360837815913,
+  "smish_recall_drop": -0.013978354978354979
+}

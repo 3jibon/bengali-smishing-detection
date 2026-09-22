@@ -1,0 +1,13 @@
+{
+  "model": "mBERT + LoRA (r=16)",
+  "test_f1": 0.5057025573547527,
+  "test_acc": 0.4966634890371783,
+  "smish_recall": 0.20205209155485399,
+  "time_sec": 380,
+  "comparison_with_full_ft": {
+    "mbert_full_ft_f1": 0.645,
+    "mbert_lora_f1": 0.5057025573547527,
+    "difference": -0.13929744264524735,
+    "finding": "LoRA fails for mBERT (unlike other models)"
+  }
+}

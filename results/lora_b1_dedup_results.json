@@ -1,0 +1,11 @@
+{
+  "baseline_f1": 0.5963,
+  "val_f1": 0.992354,
+  "test_f1": 0.5165162361240793,
+  "test_accuracy": 0.512577123872805,
+  "improvement": -0.07978376387592079,
+  "generalization_gap": 0.4758377638759207,
+  "train_size": 4084,
+  "val_size": 721,
+  "test_size": 2107
+}

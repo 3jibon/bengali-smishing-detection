@@ -1,0 +1,38 @@
+{
+  "ID": {
+    "accuracy": 0.9678800856531049,
+    "macro_f1": 0.9675401069518715,
+    "n": 1401,
+    "unique_labels": 3
+  },
+  "OOD": {
+    "accuracy": 0.946551724137931,
+    "macro_f1": 0.9472045497620071,
+    "n": 3480,
+    "unique_labels": 3
+  },
+  "Unseen Attack": {
+    "accuracy": 0.8232044198895028,
+    "macro_f1": 0.8328295465808792,
+    "n": 2534,
+    "unique_labels": 3
+  },
+  "B2 URL": {
+    "accuracy": 0.5510204081632653,
+    "macro_f1": 0.5944300379611832,
+    "n": 2107,
+    "unique_labels": 3
+  },
+  "B3 Phone": {
+    "accuracy": 0.5205768554344002,
+    "macro_f1": 0.5329132647345803,
+    "n": 2843,
+    "unique_labels": 3
+  },
+  "Campaign": {
+    "accuracy": 0.9694385216773277,
+    "macro_f1": 0.9699046964870689,
+    "n": 1407,
+    "unique_labels": 3
+  }
+}

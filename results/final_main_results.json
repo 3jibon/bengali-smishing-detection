@@ -1,0 +1,16 @@
+{
+  "model": "XLM-R + LoRA (r=16)",
+  "split": "campaign-aware + strict near-dup filter",
+  "augmentation": "2x URL/phone removal + word swap",
+  "baseline_f1": 0.5963,
+  "lora_test_f1": 0.7463,
+  "lora_test_accuracy": 0.7451,
+  "smish_recall": 0.5888,
+  "smish_precision": 0.9868,
+  "improvement": 0.15,
+  "improvement_pct": 25.1,
+  "trainable_pct": 1.15,
+  "train_size": 6798,
+  "val_size": 623,
+  "test_size": 2107
+}

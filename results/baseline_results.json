@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-09-19 23:49:58.793491",
+  "model": "TF-IDF + LogisticRegression",
+  "id_macro_f1": 0.9701884651179052,
+  "ood_macro_f1": 0.9472045497620071,
+  "generalization_gap": 0.022983915355898166,
+  "id_test_size": 1401,
+  "ood_test_size": 3480
+}

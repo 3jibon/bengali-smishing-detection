@@ -1,0 +1,41 @@
+{
+  "1gram_overlap": 42,
+  "1gram_examples": [
+    "\u099f",
+    "korte",
+    "\u09a4",
+    "your",
+    "phone",
+    "\u099b",
+    "\u09b9\u09af",
+    "call",
+    "\u09b0",
+    "\u09af"
+  ],
+  "2gram_overlap": 29,
+  "2gram_examples": [
+    "\u0995\u09b0 \u09a8",
+    "\u09a4 \u09b0",
+    "\u09aa \u09b0",
+    "\u099b \u09a8",
+    "\u09b9\u09af \u099b",
+    "\u09ae \u09ac",
+    "\u09ac \u09b0",
+    "\u0989\u09a8 \u099f",
+    "cutt ly",
+    "\u09a8 \u09a8"
+  ],
+  "3gram_overlap": 22,
+  "3gram_examples": [
+    "\u0995\u09b0 \u09a8 phone",
+    "\u09b0 \u09b8 \u09a5",
+    "\u09e6\u09e6\u09e6 \u099f \u0995",
+    "\u09af \u0995 \u0989\u09a8",
+    "\u09a4 \u099b \u09a8",
+    "\u09b0 \u099c\u09a8 \u09af",
+    "\u09b2 \u0995 \u0995\u09b0",
+    "\u09ae \u09ac \u09b0",
+    "\u0986\u09ae \u09a6 \u09b0",
+    "\u09ae \u09a4 \u09b0"
+  ]
+}
