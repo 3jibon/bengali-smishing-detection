@@ -1,26 +1,95 @@
-venv/
+# ============================================
+# Python
+# ============================================
 __pycache__/
-*.pyc
-.ipynb_checkpoints/
-data/raw/*.csv
-results/models/*.bin
-.DS_Store
-# Large model files
-results/models/
-models/*/.cache/
-*.safetensors
-*.bin
-*.pt
-*.pth
-*.ckpt
-*.h5
-*.pkl
-optimizer.pt
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Large data
-data/raw/
-data/external/
-
-# Virtual env
+# Virtual Environments
 venv/
 env/
+ENV/
+.venv/
+.conda/
+
+# ============================================
+# Jupyter Notebook
+# ============================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# ============================================
+# Model Files (Large)
+# ============================================
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.h5
+*.ckpt
+*.pkl
+*.pickle
+results/models/
+models/
+
+# ============================================
+# Data (if large)
+# ============================================
+data/raw/
+data/interim/
+*.csv.gz
+*.parquet
+
+# ============================================
+# IDE / Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ============================================
+# LaTeX
+# ============================================
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+paper/main.pdf
+
+# ============================================
+# Secrets
+# ============================================
+.env
+.env.local
+secrets.json
+*.key
+
+# ============================================
+# OS
+# ============================================
+Thumbs.db
+.DS_Store
+desktop.ini
