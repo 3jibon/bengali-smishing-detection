@@ -195,7 +195,7 @@ If you use this code in your research, please cite:
 
 ```bibtex
 @article{anonymous2026bengali,
-  title={Beyond Memorization: A Generalization Evaluation Framework for Lightweight Bengali SMS Phishing Detection},
+  title={Beyond Memorization: A Generalization Evaluation Framework for Parameter-Efficient Bengali SMS Phishing Detection},
   author={Anonymous},
   year={2026}
 }
