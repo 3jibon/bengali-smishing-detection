@@ -1,221 +1,251 @@
-# Bengali SMS Phishing Detection
+Beyond Memorization: A Generalization Evaluation Framework for Lightweight Bengali SMS Phishing Detection
+Code, experiments, and evaluation framework accompanying the research paper:
 
-A generalization evaluation framework for lightweight Bengali SMS phishing detection using LoRA-adapted XLM-RoBERTa.
+Beyond Memorization: A Generalization Evaluation Framework for Lightweight Bengali SMS Phishing Detection MD Farhan Uddin Jibon Department of Computer Science and Engineering Daffodil International University, Bangladesh
 
----
+Overview
+SMS phishing (smishing) is an increasingly common cyber threat targeting Bengali-speaking users through deceptive messages containing fraudulent links, phone numbers, and social-engineering tactics.
 
-## 📄 Paper
+While recent machine learning and transformer-based approaches report very high performance on random train/test splits, their behavior under distribution shift has received limited systematic evaluation in Bengali smishing detection.
 
-**Beyond Memorization: A Generalization Evaluation Framework for Lightweight Bengali SMS Phishing Detection**
+This repository introduces a generalization evaluation framework designed to assess whether a detector relies on robust contextual understanding or on superficial shortcuts such as URLs, phone numbers, or recurring campaign templates.
 
-*Paper link to be added upon publication.*
+The framework evaluates models under multiple forms of distribution shift, counterfactual transformations, and adversarial perturbations.
 
----
+Main Contributions
+1. Component Holdouts
+Evaluate robustness when previously unseen components appear at test time:
 
-## 🎯 Overview
+URL Holdout
+Phone Holdout
+These tests examine whether models depend excessively on specific surface indicators.
 
-This repository contains code, models, and evaluation artifacts for detecting Bengali SMS phishing (smishing) with a focus on **generalization under distribution shift** rather than random-split accuracy.
+2. Campaign Holdouts
+Campaign-level evaluation using TF-IDF representations and K-Means clustering of smishing templates.
 
-### Key Contributions
+Two configurations are provided:
 
-1. **Component holdouts** (URL, phone) — expose catastrophic TF-IDF vulnerability
-2. **Campaign holdouts** via TF-IDF + k-means — test template variation
-3. **Counterfactual protocol** with 7 variants (V1–V8) and 4 metrics (CRR, TDS, PS, CCR)
-4. **Adversarial robustness** under 5 character-level perturbations
-5. **Cross-dataset transfer** to BangalaBarta and 5-fold cross-validation
+Broad Campaign Holdout
+Distant Campaign Holdout
+These splits assess performance on campaign distributions different from those observed during training.
 
----
+3. Counterfactual Evaluation Protocol
+A structured counterfactual framework evaluates model dependence on:
 
-## 📊 Key Results
+URLs
+Phone numbers
+Message templates
+Remaining contextual content
+The protocol produces four aggregate interpretive metrics:
 
-### Seven-Split Generalization (Macro F1)
+CRR — Context Retention Rate
+TDS — Template Dependence Score
+PS — Prediction Stability
+CCR — Context Contribution Ratio
+4. Adversarial Robustness Analysis
+Robustness is evaluated using controlled text perturbations and the:
 
-| Model | ID | OOD | UA | URL | Phone | Broad | Distant |
-|-------|-----|-----|-----|-----|-------|-------|---------|
-| TF-IDF + LR | 0.968 | 0.947 | 0.833 | 0.594 | 0.533 | 0.970 | 0.960 |
-| BanglaBERT (frozen) | 0.876 | 0.715 | 0.811 | 0.716 | 0.750 | 0.896 | 0.885 |
-| IndicBERT + LoRA | 0.889 | 0.873 | 0.837 | 0.761 | 0.840 | 0.901 | 0.892 |
-| MuRIL + LoRA | 0.837 | 0.658 | 0.761 | 0.658 | 0.759 | 0.823 | 0.836 |
-| **XLM-R + LoRA (ours)** | **0.986** | **0.974** | **0.986** | **0.971** | **0.980** | **0.986** | **0.978** |
+RDR (Robustness Degradation Ratio)
+metric proposed in recent smishing robustness literature.
 
-### Counterfactual Metrics (OOD Test Set)
+5. Lightweight Deployment
+The proposed model uses:
 
-| Metric | Value | Threshold | Status |
-|--------|-------|-----------|--------|
-| CRR (Context Retention Ratio) | **0.933** | > 0.80 | ✅ |
-| TDS (Template Dependence Score) | **0.017** | < 0.10 | ✅ |
-| PS (Prediction Stability) | **0.972** | > 0.75 | ✅ |
-| CCR (Context Contribution Ratio) | **0.950** | > 0.75 | ✅ |
+XLM-RoBERTa-base
+LoRA (Low-Rank Adaptation)
+requiring only:
 
-### Adversarial Robustness
+3.25M trainable parameters
+13 MB adapter size
+4 GB VRAM for training
+Dataset
+Experiments are conducted using the publicly available:
 
-| Perturbation | F1 | RDR |
-|--------------|-----|-----|
-| Clean | 0.986 | 0.000 |
-| Character repeat | 0.982 | 0.004 |
-| Random char drop (15%) | 0.902 | 0.086 |
-| Heavy typo (20% swap) | 0.867 | 0.122 |
-| Case flip | 0.860 | 0.128 |
-| Mixed (typo + drop) | 0.732 | **0.258** |
+Bengali SMS Smishing Dataset
 
-**Max RDR = 0.258** (well below the 0.30 robustness threshold)
+Total messages: 7,005
+Smish: 2,809
+Normal: 2,488
+Promotional: 1,708
+Language varieties include:
 
-### Efficiency
+Bengali
+English
+Banglish
+Code-Mixed SMS
+Dataset source:
 
-- **Adapter size:** 13 MB (FP32) vs. 1125 MB full XLM-R
-- **Trainable parameters:** 3.25M (1.15% of total)
-- **Inference:** 3.22 ms/SMS at batch size 32 (RTX 2050, 4 GB VRAM)
+from datasets import load_dataset
 
----
+dataset = load_dataset(
+    "shariul-islam/bengali-sms-smishing-dataset"
+)
+Evaluation Splits
+In-Distribution (ID)
+Standard stratified train/test split.
 
-## 📁 Repository Structure
+Out-of-Distribution (OOD)
+Training:
 
-```
-.
-├── README.md                  # This file
-├── LICENSE                    # MIT License
-├── requirements.txt           # Python dependencies
-├── .gitignore
-│
-├── notebooks/                 # Jupyter notebooks (experiments)
-│   ├── 01_eda.ipynb
-│   ├── 02_split_prep.ipynb
-│   ├── 03_hard_splits.ipynb
-│   ├── 04_campaign_holdout.ipynb
-│   ├── 04_lora_transformer.ipynb
-│   ├── 05_lora_v2.ipynb
-│   ├── 06_revision_experiments.ipynb
-│   ├── 06_token_analysis.ipynb
-│   ├── bengali_smishing_baselines.ipynb
-│   ├── bengali_smishing_cv.ipynb
-│   ├── bengali_smishing_muril.ipynb
-│   ├── bengali_smishing_robustness.ipynb
-│   ├── cross_dataset_bangalabarta.ipynb
-│   ├── random_vs_unseen.ipynb
-│   └── verification_bootstrap.ipynb
-│
-├── data/
-│   └── processed/             # Preprocessed datasets
-│       ├── cleaned.csv
-│       ├── train_*.csv
-│       └── test_*.csv
-│
-├── results/
-│   ├── figures/               # Paper figures
-│   │   ├── main_comparison.png
-│   │   ├── counterfactual_evaluation_fixed.png
-│   │   ├── adversarial_robustness_fixed.png
-│   │   └── cv_stability.png
-│   └── *.json                 # Evaluation results
-│
-└── paper/                     # LaTeX source
-    ├── main.tex
-    └── figures/
-```
+Bengali
+English
+Testing:
 
----
+Banglish
+Code-Mixed
+This evaluates cross-script and cross-language generalization.
 
-## 🚀 Quick Start
+URL Holdout
+Training data excludes URLs.
 
-### 1. Clone Repository
+Testing contains URL-bearing messages.
 
-```bash
-git clone https://github.com/3jibon/bengali-smishing-detection.git
+Phone Holdout
+Training data excludes phone numbers.
+
+Testing contains phone-number-bearing messages.
+
+Broad Campaign Holdout
+Campaign clusters are separated using TF-IDF + K-Means.
+
+Distant Campaign Holdout
+Training and testing clusters are selected to maximize separation.
+
+Cross-Dataset Evaluation
+Models trained on the Bengali SMS Smishing Dataset are evaluated on the BangalaBarta corpus to assess transferability across datasets.
+
+Model Zoo
+Model	Trainable Parameters
+TF-IDF + Logistic Regression	~0
+BanglaBERT (Frozen) + LR	0
+MuRIL + LoRA	0.89M
+XLM-R + LoRA	3.25M
+Main Results
+Macro F1 Comparison
+Model	ID	OOD	URL	Phone	Broad	Distant
+TF-IDF + LR	0.968	0.947	0.594	0.533	0.970	0.960
+BanglaBERT (Frozen)	—	0.840	—	—	—	—
+MuRIL + LoRA	—	0.762	—	—	—	—
+XLM-R + LoRA	0.986	0.974	0.971	0.980	0.986	0.978
+Counterfactual Analysis
+Counterfactual Conditions
+Variant	Description
+V1	Original message
+V2	URL removed
+V3	Phone removed
+V4	URL + Phone removed
+V6	Template only
+V7	Template-only duplicate condition
+V8	Context-only condition
+Aggregate Metrics
+Metric	Value
+CRR	0.933
+TDS	0.017
+PS	0.972
+CCR	0.950
+Adversarial Robustness
+Robustness is evaluated using:
+
+Character repetition
+Character deletion
+Heavy typographical noise
+Case flipping
+Mixed perturbations
+Performance degradation is quantified using:
+
+RDR = (F1_clean − F1_perturbed) / F1_clean
+Efficiency
+Metric	Value
+Adapter size	13 MB
+Trainable parameters	3.25M
+Training time	~10 minutes
+Batch-32 latency	3.22 ms/SMS
+Single-message latency	20.37 ms
+Hardware:
+
+NVIDIA RTX 2050 (4 GB VRAM)
+Installation
+git clone https://github.com/farhan-uddin/bengali-smishing-detection.git
+
 cd bengali-smishing-detection
-```
-
-### 2. Install Dependencies
-
-```bash
-python -m venv venv
-
-# On Linux/macOS
-source venv/bin/activate
-
-# On Windows
-venv\Scripts\activate
 
 pip install -r requirements.txt
-```
+Quick Start
+1. Data Preparation
+python src/data_prep.py
+Generated files:
 
-### 3. Run Experiments
+data/processed/
+├── cleaned.csv
+├── train_id.csv
+├── test_id.csv
+├── train_ood.csv
+├── test_ood.csv
+├── train_campaign_broad.csv
+├── test_campaign_broad.csv
+├── train_campaign_distant.csv
+├── test_campaign_distant.csv
+2. Train XLM-R + LoRA
+python src/train_lora.py \
+    --config configs/lora_v2.yaml
+Default configuration:
 
-```bash
-jupyter notebook
-```
+Base model: xlm-roberta-base
+LoRA rank: 16
+Alpha: 32
+Dropout: 0.1
+Epochs: 5
+Learning rate: 3e-4
+Batch size: 8
+Gradient accumulation: 2
+FP16 enabled
+3. Evaluate
+python src/evaluate.py \
+    --splits id ood url phone broad distant
+4. Counterfactual Evaluation
+python src/counterfactual.py
+5. Adversarial Robustness
+python src/adversarial.py
+Reproducibility
+Environment:
 
-Navigate to:
+Python 3.10+
+PyTorch 2.0+
+Transformers 4.35+
+PEFT 0.6+
+Hardware:
 
-- `notebooks/01_eda.ipynb` — Data exploration
-- `notebooks/02_split_prep.ipynb` — Seven-split preparation
-- `notebooks/05_lora_v2.ipynb` — Main LoRA training
-- `notebooks/06_revision_experiments.ipynb` — Counterfactual evaluation
-- `notebooks/bengali_smishing_robustness.ipynb` — Adversarial robustness
-- `notebooks/bengali_smishing_cv.ipynb` — 5-fold cross-validation
-- `notebooks/cross_dataset_bangalabarta.ipynb` — Cross-dataset transfer
+NVIDIA RTX 2050 (4 GB VRAM)
+CUDA 12.x
+Random seed:
 
----
+42
+Cross-validation experiments use seeds:
 
-## 📊 Dataset
-
-- **Source:** [Bengali SMS Smishing Dataset](https://huggingface.co/datasets/shariul-islam/bengali-sms-smishing-dataset)
-- **Size:** 7,005 SMS
-- **Labels:** `normal`, `promo`, `smish`
-- **Languages:** Bengali, English, Banglish, CodeMix
-- **Preprocessing:** Text normalization + URL/phone masking (`[URL]`, `[PHONE]`)
-
-### Seven Evaluation Splits
-
-1. **ID** — In-distribution random split
-2. **OOD** — Out-of-distribution (different source)
-3. **UA** — Unseen attack (new smishing templates)
-4. **URL** — URL holdout (test URLs unseen)
-5. **Phone** — Phone holdout (test phones unseen)
-6. **Broad** — Broad campaign holdout
-7. **Distant** — Distant campaign holdout (hardest)
-
----
-
-## 🛠️ Requirements
-
-- **Python** 3.9+
-- **PyTorch** 2.1+
-- **Transformers** 4.35+
-- **PEFT** 0.6+
-- **CUDA** 12.1 (recommended)
-
-See `requirements.txt` for the full list.
-
----
-
-## 📖 Citation
-
-If you use this code in your research, please cite:
-
-```bibtex
-@article{anonymous2026bengali,
+42, 43, 44, 45, 46
+Repository Structure
+bengali-smishing-detection/
+├── README.md
+├── requirements.txt
+├── LICENSE
+├── notebooks/
+├── src/
+├── configs/
+├── results/
+└── data/
+Citation
+@misc{jibon2026beyond,
   title={Beyond Memorization: A Generalization Evaluation Framework for Lightweight Bengali SMS Phishing Detection},
-  author={Anonymous},
+  author={Jibon, MD Farhan Uddin},
   year={2026}
 }
-```
+Acknowledgments
+Bengali SMS Smishing Dataset — Shariul Islam
+XLM-RoBERTa
+Hugging Face Transformers
+PEFT / LoRA
+BangalaBarta Dataset
+Contact
+MD Farhan Uddin Jibon Department of Computer Science and Engineering Daffodil International University, Bangladesh
 
----
-
-## 📧 Contact
-
-For questions, please contact the authors.
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
-
----
-
-## 🙏 Acknowledgments
-
-- Hugging Face for model hosting and datasets
-- The Bengali SMS smishing dataset contributors
-- The open-source community behind PyTorch, Transformers, and PEFT
+Email: farhanuddinjibon@gmail.com
