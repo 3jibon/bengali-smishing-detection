@@ -6,7 +6,8 @@ A generalization evaluation framework for lightweight Bengali SMS phishing detec
 
 ## 📄 Paper
 
-**Beyond Memorization: A Generalization Evaluation Framework for Lightweight Bengali SMS Phishing Detection**
+**Beyond Memorization: A Generalization Evaluation Framework
+for Parameter-Efficient Bengali SMS Phishing Detection**
 
 *Paper link to be added upon publication.*
 
