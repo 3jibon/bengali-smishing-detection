@@ -1,6 +1,6 @@
 # Bengali SMS Phishing Detection
 
-A generalization evaluation framework for lightweight Bengali SMS phishing detection using LoRA-adapted XLM-RoBERTa.
+A generalization evaluation framework for Parameter-Efficient Bengali SMS phishing detection using LoRA-adapted XLM-RoBERTa.
 
 ---
 
